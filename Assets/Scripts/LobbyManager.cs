@@ -105,7 +105,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         //base.OnConnectedToMaster();
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName + "is connected to Photon Server");
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to Photon Server");
         uI_LobbyGameobject.SetActive(true);
         uI_3DGameobject.SetActive(true);
 
