@@ -34,6 +34,21 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
 
 
     }
+
+    public void OnQuitMatchButtonClicked()
+    {
+
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+
+        }
+        else
+        {
+            SceneLoader.Instance.LoadScene("Scene_Lobby");
+        }
+
+    }
     #endregion
 
     #region PHOTON Callback Methods
@@ -75,6 +90,11 @@ public class SpinningTopsGameManager : MonoBehaviourPunCallbacks
             " joined to " + PhotonNetwork.CurrentRoom.Name + " Player count " + PhotonNetwork.CurrentRoom.PlayerCount;
 
         StartCoroutine(DeactivateAfterSeconds(uI_InformPanelGameobject, 2.0f));
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneLoader.Instance.LoadScene("Scene_Lobby");
     }
     #endregion
 
